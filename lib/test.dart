@@ -7,51 +7,60 @@ import 'dart:math';
  */
 void main() {
 
+
   print('Guess the Number! just type the number in range 0-100.');
 
   // seed for random
   var seed = 'a#d@i~F_!'.hashCode;
   var r = new Random(seed);
 
-  // bypass answer is 59
-  var answer = r.nextInt(101);
+  // bypass answer is 16
+  var answer = r.nextInt(99)+1;
   var count = 0;
 
   for(;;) {
 
-    stdout.write("\nInput the number to guess: ");
+    print("╔══════════════════════════════════════════════");
+    stdout.write("║ Input the number to guess: ");
 
     try {
       var iGuess = stdin.readLineSync();
+      print("╚══════════════════════════════════════════════");
       var guessNum = int.parse(iGuess!);
       count++;
       if (guessNum == answer) {
-        print('\n######################\nYou won!!!\nThe number was $answer\nYour amount of guesses is $count'+ " times.\nThanks for playing!\n######################");
+        print('╔══════════════════════════════════════════════\n║ You won!!!\n║ The number was $answer\n║ Your amount of guesses is $count'+ " times.\n║ Thanks for playing!\n╚══════════════════════════════════════════════");
         break;
       } else {
 
         // the distance between the input number and the answer
         num range = sqrt((pow(guessNum-answer, 2)).abs());
-
+        var msg = "║ ➜ "+iGuess+" is too "+(guessNum>answer?"HIGH ▲":"LOW ▼");
         /**
          * hint message
          */
+        msg += "\n║ ➜ ";
         if(range < 10) {
-          print("Nice try! very too close.");
+          msg += "Nice try! very too close.";
         } else if(range < 15) {
-          print("almost! tik tok tiktok...");
+          msg += "almost! tik tok tiktok...";
         } else if(range < 20) {
-          print("Excited! It's close.");
+        msg += "Excited! It's close.";
         } else if(range < 50) {
-          print("Not bad!\n[hint] It's in range 50 of your input number");
+          msg += "Not bad!\n║ [hint] It's in range 50 of your input number";
         } else if(range < 80 && range <= 100) {
-          print("Very far! :)");
+          msg += "Very far! :)";
+        } else {
+          msg += "hahaha It's not too close.";
         }
+        msg += "";
+        print(msg+"\n╚══════════════════════════════════════════════");
       }
     } on FormatException {
-      print('Invalid format! please try again.');
+      print('║ ➜ Invalid format! please try again.\n╚══════════════════════════════════════════════');
     }
 
   }
+
 
 }
