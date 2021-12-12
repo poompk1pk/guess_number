@@ -26,7 +26,7 @@ void main() {
       var guessNum = int.parse(iGuess!);
       count++;
       if (guessNum == answer) {
-        print('Your amount of guesses is $count'+ " times.\nThanks for playing!");
+        print('\n######################\nYou won!!!\nThe number was $answer\nYour amount of guesses is $count'+ " times.\nThanks for playing!\n######################");
         break;
       } else {
 
