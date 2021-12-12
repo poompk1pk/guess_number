@@ -30,7 +30,7 @@ void main() {
         break;
       } else {
 
-        // the distance betweet the input number and the answer
+        // the distance between the input number and the answer
         num range = sqrt((pow(guessNum-answer, 2)).abs());
 
         /**
