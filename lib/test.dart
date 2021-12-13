@@ -14,8 +14,8 @@ void main() {
   var seed = 'a#d@i~F_!'.hashCode;
   var r = new Random(seed);
 
-  // bypass answer is 16
-  var answer = r.nextInt(99)+1;
+  // bypass answer is 34
+  var answer = r.nextInt(100)+1;
   var count = 0;
 
   for(;;) {
